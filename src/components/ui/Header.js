@@ -59,7 +59,7 @@ const useStyles = makeStyles((theme) => {
       },
     },
     tabs: {
-      ...theme?.palette?.typography?.tab,
+      ...theme?.typography?.tab,
       minWidth: 10,
       marginLeft: "25px",
     },
@@ -70,12 +70,15 @@ const useStyles = makeStyles((theme) => {
       },
     },
     button: {
-      ...theme?.palette?.typography?.estimate,
+      ...theme?.typography?.estimate,
       borderRadius: "50px",
       marginLeft: "50px",
       marginRight: "25px",
       height: "45px",
       color: "white",
+      "&:hover": {
+        backgroundColor: theme.palette.secondary.light,
+      },
     },
     drawerIconContainer: {
       marginLeft: "auto",
@@ -90,7 +93,7 @@ const useStyles = makeStyles((theme) => {
       backgroundColor: theme.palette.common.blue,
     },
     drawerItem: {
-      ...theme?.palette?.typography?.tab,
+      ...theme?.typography?.tab,
       color: "white",
       opacity: 0.7,
     },
@@ -98,9 +101,9 @@ const useStyles = makeStyles((theme) => {
       backgroundColor: theme.palette.common.orange,
     },
     drawerItemSelected: {
-      "& .MuiListItemText-root":{
+      "& .MuiListItemText-root": {
         opacity: 1,
-      }
+      },
     },
     appbar: {
       zIndex: theme.zIndex.modal + 1,

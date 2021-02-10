@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Header from "./ui/Header";
 import theme from "./ui/Theme";
 import Footer from "./ui/Footer";
+import LandingPage from "./LandingPage";
 function App() {
   return (
     <ThemeProvider theme={theme}>
@@ -14,7 +15,7 @@ function App() {
           <Route
             exact
             path="/"
-            component={() => <div style={{ height: "2200px" }}> Home Page</div>}
+            component={LandingPage}
           />
           <Route
             exact
