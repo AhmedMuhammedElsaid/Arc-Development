@@ -156,6 +156,9 @@ export default function Header(props) {
             }
           }
           break;
+        case "/estimate":
+          setValue(5);
+          break;
         default:
           break;
       }
@@ -206,7 +209,10 @@ export default function Header(props) {
             }}
             button
             component={Link}
-            classes={{root:classes.drawerItemEstimate,selected:classes.drawerItemSelected}}
+            classes={{
+              root: classes.drawerItemEstimate,
+              selected: classes.drawerItemSelected,
+            }}
             to="/estimate"
           >
             <ListItemText className={classes.drawerItem} disableTypography>
@@ -252,7 +258,14 @@ export default function Header(props) {
           value={value}
         />
       </Typography>
-      <Button className={classes.button} variant="contained" color="secondary">
+      <Button
+        component={Link}
+        to="/estimate"
+        className={classes.button}
+        variant="contained"
+        onClick={() => setValue(5)}
+        color="secondary"
+      >
         {" "}
         Free Estimate
       </Button>

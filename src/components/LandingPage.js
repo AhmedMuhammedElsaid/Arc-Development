@@ -17,6 +17,8 @@ import MobileAppIcon from '../assets/mobileIcon.svg'
 import WebsiteIcon from "../assets/websiteIcon.svg";
 import RevolutionBg from '../assets/repeatingBackground.svg'
 import InfoBg from '../assets/infoBackground.svg'
+import CallToAction from "./ui/CallToAction";
+import { Link } from "react-router-dom";
 const useStyles = makeStyles((theme) => ({
   animation: {
     maxWidth: "50em",
@@ -126,6 +128,7 @@ const useStyles = makeStyles((theme) => ({
 function LandingPage() {
   const theme = useTheme();
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
+  const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
   const defaultOptions = {
     loop: true,
     autoplay: true,
@@ -146,12 +149,22 @@ function LandingPage() {
             </Typography>
             <Grid container justify="center" buttonContainer>
               <Grid item>
-                <Button variant="contained" className={classes.estimateButton}>
+                <Button
+                  component={Link}
+                  to="/estimate"
+                  variant="contained"
+                  className={classes.estimateButton}
+                >
                   Free Estimate
                 </Button>
               </Grid>
               <Grid item>
-                <Button variant="outlined" className={classes.learnButtonHero}>
+                <Button
+                  component={Link}
+                  to="/revolution"
+                  variant="outlined"
+                  className={classes.learnButtonHero}
+                >
                   <span style={{ marginRight: 10 }}> Learn More</span>
                   <ButtonArrow
                     width={15}
@@ -191,7 +204,12 @@ function LandingPage() {
               Complete digital solutions, from investigation to
               <span className={classes.specialText}>celebration</span>
             </Typography>
-            <Button variant="outlined" className={classes.learnButton}>
+            <Button
+              component={Link}
+              to="/customsoftware"
+              variant="outlined"
+              className={classes.learnButton}
+            >
               <span style={{ marginRight: 10 }}> Learn More</span>
               <ButtonArrow
                 width={15}
@@ -232,7 +250,12 @@ function LandingPage() {
               Integrate your web experience or create standalone app
               {matchesSM ? null : <br />} with either mobile platform.
             </Typography>
-            <Button variant="outlined" className={classes.learnButton}>
+            <Button
+              component={Link}
+              to="/mobileapp"
+              variant="outlined"
+              className={classes.learnButton}
+            >
               <span style={{ marginRight: 10 }}> Learn More</span>
               <ButtonArrow
                 width={15}
@@ -279,7 +302,12 @@ function LandingPage() {
               Optimized for search Engines, built for speed
               <span className={classes.specialText}>celebration</span>
             </Typography>
-            <Button variant="outlined" className={classes.learnButton}>
+            <Button
+              component={Link}
+              to="/website"
+              variant="outlined"
+              className={classes.learnButton}
+            >
               <span style={{ marginRight: 10 }}> Learn More</span>
               <ButtonArrow
                 width={15}
@@ -324,6 +352,8 @@ function LandingPage() {
                     recipe of revolution.
                   </Typography>
                   <Button
+                    component={Link}
+                    to="/revolution"
                     variant="outlined"
                     className={classes.learnButtonHero}
                   >
@@ -349,23 +379,80 @@ function LandingPage() {
         container
         style={{ height: "80em" }}
       >
-        <Grid item style={{ position: "absolute", marginLeft: "5em" }}>
-          <Grid container direction="column">
-            <Typography variant="h2" style={{ color: "white" }}>
-              About Us
-            </Typography>
-            <Typography variant="subtitle2">Let's get Personal.</Typography>
-            <Grid item>
-              <Button  style={{color:"white",borderColor:"white"}} variant="outlined" className={classes.learnButtonHero}>
-                <span style={{ marginRight: 10 }}> Learn More</span>
-                <ButtonArrow width={15} height={15} fill={"white"} />
-              </Button>
+        <Grid
+          item
+          container
+          direction={matchesXS ? "column" : "row"}
+          style={{
+            position: "absolute",
+            textAlign: matchesXS ? "center" : "inherit",
+          }}
+          spacing={matchesXS ? 10 : 0}
+        >
+          <Grid
+            item
+            sm
+            style={{ marginLeft: matchesSM ? 0 : matchesXS ? "2em" : "5em" }}
+          >
+            <Grid container direction="column">
+              <Typography variant="h2" style={{ color: "white" }}>
+                About Us
+              </Typography>
+              <Typography variant="subtitle2">Let's get Personal.</Typography>
+              <Grid item>
+                <Button
+                  component={Link}
+                  to="/about"
+                  style={{ color: "white", borderColor: "white" }}
+                  variant="outlined"
+                  className={classes.learnButtonHero}
+                >
+                  <span style={{ marginRight: 10 }}> Learn More</span>
+                  <ButtonArrow width={15} height={15} fill={"white"} />
+                </Button>
+              </Grid>
+            </Grid>
+          </Grid>
+          <Grid
+            sm
+            item
+            style={{
+              marginRight: matchesSM ? 0 : matchesXS ? "2em" : "5em",
+              textAlign: matchesXS ? "center" : "right",
+            }}
+          >
+            <Grid container direction="column">
+              <Typography variant="h2" style={{ color: "white" }}>
+                Contact Us
+              </Typography>
+              <Typography variant="subtitle2">
+                Say Hello.
+                <span role="img" aria-label="waving hand"></span>
+              </Typography>
+              <Grid item>
+                <Button
+                  component={Link}
+                  to="/contact"
+                  style={{ color: "white", borderColor: "white" }}
+                  variant="outlined"
+                  className={classes.learnButtonHero}
+                >
+                  <span style={{ marginRight: 10 }}> Learn More</span>
+                  <ButtonArrow width={15} height={15} fill={"white"} />
+                </Button>
+              </Grid>
             </Grid>
           </Grid>
         </Grid>
         <div className={classes.infoBg} />
       </Grid>
+
       {/* End Of Information Block */}
+
+      {/*Call To Action Block */}
+      <Grid item>
+        <CallToAction />
+      </Grid>
     </Grid>
   );
 }

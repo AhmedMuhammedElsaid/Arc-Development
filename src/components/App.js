@@ -5,6 +5,8 @@ import Header from "./ui/Header";
 import theme from "./ui/Theme";
 import Footer from "./ui/Footer";
 import LandingPage from "./LandingPage";
+import Services from "./ui/Services";
+import CustomSoftwares from "./CustomSoftwares";
 function App() {
   return (
     <ThemeProvider theme={theme}>
@@ -20,12 +22,17 @@ function App() {
           <Route
             exact
             path="/services"
-            component={() => <div> Service Page</div>}
+            component={Services}
+            // render={(props)=>(
+            //   <Services 
+            //   {...props}
+              
+            // )}
           />
           <Route
             exact
             path="/customsoftware"
-            component={() => <div> Custom Software Apps Page</div>}
+            component={CustomSoftwares}
           />
           <Route
             exact
