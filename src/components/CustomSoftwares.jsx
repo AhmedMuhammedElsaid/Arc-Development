@@ -1,29 +1,45 @@
 import { Grid, IconButton, makeStyles, Typography } from "@material-ui/core";
 import React from "react";
+import { Link } from "react-router-dom";
 import backArrow from "../assets/backArrow.svg";
 import forwardArrow from "../assets/forwardArrow.svg";
-
-
-const useStyles=makeStyles(theme=>({
-heading:{
-maxWidth:"40em",
-margin:"4rem"
-},
-arrowContainer:{
-    marginTop:'.5em'
-}
-}))
+import lightbulb from "../assets/bulb.svg";
+import cash from "../assets/cash.svg";
+import stopwatch from "../assets/stopwatch.svg";
+const useStyles = makeStyles((theme) => ({
+  heading: {
+    maxWidth: "40em",
+    margin: "4rem",
+  },
+  arrowContainer: {
+    marginTop: ".5em",
+  },
+  mainContainer: {
+    paddingLeft: "5em",
+    paddingRight: "5em",
+    paddingTop: "2em",
+    paddingBottom: "10em",
+  },
+}));
 const CustomSoftwares = () => {
-    const classes=useStyles();
+  const classes = useStyles();
   return (
-    <Grid container direction="column" className={classes.heading}>
+    <Grid container direction="column" className={classes.mainContainer}>
       <Grid item container direction="row">
-        <Grid item classesName={classes.arrowContainer}>
-          <IconButton style={{ backgroundColor: "transparent" }}>
+        <Grid
+          item
+          classesName={classes.arrowContainer}
+          style={{ marginRight: "1em", marginLeft: "-3.5em" }}
+        >
+          <IconButton
+            style={{ backgroundColor: "transparent" }}
+            component={Link}
+            to="/services"
+          >
             <img src={backArrow} alt="back arrow" />
           </IconButton>
         </Grid>
-        <Grid item container direction="column">
+        <Grid item container direction="column" className={classes.heading}>
           <Grid item>
             <Typography variant="h2">Custom Software Development</Typography>
           </Grid>
@@ -47,9 +63,41 @@ const CustomSoftwares = () => {
           </Grid>
         </Grid>
         <Grid item>
-          <IconButton style={{ backgroundColor: "transparent" }}>
+          <IconButton
+            style={{ backgroundColor: "transparent" }}
+            component={Link}
+            to="/mobileapps"
+          >
             <img src={forwardArrow} alt="forward arrow" />
           </IconButton>
+        </Grid>
+      </Grid>
+      <Grid item container direction="row" justify="center"
+      style={{marginTop:"15em",marginBottom:"20em"}}
+      >
+        <Grid item container direction="column"  md style={{maxWidth:"40em"}} alignItems="center">
+          <Grid item>
+            <Typography variant="h4">Save Energy</Typography>
+          </Grid>
+          <Grid item>
+            <img src={lightbulb} alt="lightbulb" />
+          </Grid>
+        </Grid>
+        <Grid item container direction="column" md style={{maxWidth:"40em"}} alignItems="center">
+          <Grid item>
+            <Typography variant="h4">Save Time</Typography>
+          </Grid>
+          <Grid item>
+            <img src={stopwatch} alt="stopwatch" />
+          </Grid>
+        </Grid>
+        <Grid item container direction="column" md style={{maxWidth:"40em"}} alignItems="center">
+          <Grid item>
+            <Typography variant="h4">Save Money</Typography>
+          </Grid>
+          <Grid item>
+            <img src={cash} alt="cash" />
+          </Grid>
         </Grid>
       </Grid>
     </Grid>

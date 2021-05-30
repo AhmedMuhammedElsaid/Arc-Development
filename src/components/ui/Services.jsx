@@ -62,7 +62,7 @@ const Services = () => {
           direction="row"
           justify={matchesSM ? "center" : "flex-end"}
           className={classes.serviceContainer}
-          style={{ marginTop: matchesSM ? "1rem" : "5rem" }}
+          style={{ marginTop: matchesSM ? "1em" : "5em" }}
         >
           <Grid
             item
